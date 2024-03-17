@@ -1,7 +1,7 @@
 "use client"
-import postcss from 'postcss'
+import dynamic from 'next/dynamic';
 import {ChangeEvent, FormEvent, useState, useRef} from 'react'
-import JoditEditor from 'jodit-react';
+const JoditEditor = dynamic(() => import('jodit-react'), { ssr: false });
 import SuccessMesssage from '@/app/components/SuccessMesssage';
 import ErrorMesssage from '@/app/components/ErrorMessage';
 
