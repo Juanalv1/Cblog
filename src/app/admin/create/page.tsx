@@ -1,6 +1,7 @@
 "use client"
+import dynamic from 'next/dynamic';
 import {useState, useRef, useMemo, FormEvent, ChangeEvent} from 'react';
-import JoditEditor from 'jodit-react';
+const JoditEditor = dynamic(() => import('jodit-react'), { ssr: false });
 import { useRouter } from 'next/navigation';
 import ErrorMesssage from '@/app/components/ErrorMessage';
 import SuccessMesssage from '@/app/components/SuccessMesssage';
