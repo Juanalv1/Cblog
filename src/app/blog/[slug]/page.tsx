@@ -43,8 +43,8 @@ const Page = ({ params }: { params: { slug: string } }) => {
           <article className='flex flex-col py-4 px-6 justify-center border-t-black w-full mt-4 lg:px-12 xl:px-24'>
             <p className='text-2xl font-medium my-2 pb-1'>Posts relacionados</p>
             <div className='flex flex-col lg:flex-row gap-y-4 gap-x-6'>
-              {Array.isArray(posts) && posts?.slice(0, 4).map((post: PostType) =>(
-                <PostCard description={post.preview_description} banner_url={post.banner_url} title={post.post_title}/>
+              {Array.isArray(posts) && posts?.slice(0, 4).map((post: PostType, index) =>(
+                <PostCard description={post.preview_description} banner_url={post.banner_url} title={post.post_title} key={index}/>
               ))}
             </div>
           </article>
