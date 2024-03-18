@@ -18,7 +18,7 @@ function PostPage({slug} : {slug: string}) {
     if (posts) {
       console.log('en el if')
       console.log(posts, slug)
-      const pagePost = posts.find((p) => p.post_title.toLowerCase() == slug)
+      const pagePost = posts.find((p) => p.post_title.toLowerCase() == slug.toLowerCase())
       if (pagePost) {
         setPost(pagePost)
       } 

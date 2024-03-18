@@ -7,7 +7,7 @@ import { MdTimeToLeave } from 'react-icons/md'
 const PostCard = ({description, banner_url, title} : {description: string, banner_url: string, title: string}) => {
   const shortDescription = description.substring(0, 150) + "..."
   return (
-    <Link className='flex flex-col h-80 w-72 shadow-lg border-2 hover:bg-[#d3dadf] hover:border-[#279ff0] hover:shadow-2xl cursor-pointer rounded-lg' href={`/blog/${title.replace(/ /g, "-")}`}>
+    <Link className='flex flex-col h-80 w-72 shadow-lg border-2 hover:bg-[#d3dadf] hover:border-[#279ff0] hover:shadow-2xl cursor-pointer rounded-lg' href={`/blog/${encodeURI(title.replace(/ /g, "-").replace(/,/g, "%2c"))}`}>
       <div className=' w-full flex h-[45%] relative'>
         <Image src={banner_url} fill={true}  alt={title} className='relative object-fill rounded-t-md'/>
       </div>

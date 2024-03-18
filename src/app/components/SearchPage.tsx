@@ -58,7 +58,7 @@ const SearchPage = () => {
         {results && (
           <div className=" shadow-xl p-4 flex flex-col relative top-10 w-full rounded-lg gap-y-2 bg-slate-100">
             {results.map((result) => (
-              <Link href={`/blog/${result.post_title.replace(/ /g, "-")}`} key={result.post_id} className="flex justify-between items-center hover:bg-gray-200 py-1 px-4 shaodw-xl">
+              <Link href={`/blog/${result.post_title.replace(/ /g, "-").replace(/,/g, "%2c")}`} key={result.post_id} className="flex justify-between items-center hover:bg-gray-200 py-1 px-4 shaodw-xl">
                 <img src={result.banner_url}  className="rounded w-36 h-20"/>
                 <p className="w-3/5">{result.post_title}</p>
               </Link>

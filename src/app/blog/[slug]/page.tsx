@@ -20,7 +20,9 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
-  const slug = decodeURI(params.slug.replace(/-/g, " "))
+  const decodedSlug = decodeURIComponent(params.slug)
+
+  const slug = decodedSlug.replace(/-/g, " ").replace(/%2c/g, ',')
 
   return {
     title: slug,
@@ -28,7 +30,8 @@ export async function generateMetadata(
 }
 
 const Page = ({ params }: { params: { slug: string } }) => {
-  const slug = decodeURI(params.slug.toLowerCase().replace(/-/g, " "))
+  const decodedSlug = decodeURIComponent(params.slug)
+  const slug = decodedSlug.replace(/-/g, " ").replace(/%2c/g, ',')
   console.log(slug)
   return (
     <main>
