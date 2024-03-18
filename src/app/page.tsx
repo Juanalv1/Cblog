@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import PostsList from './components/PostsList'
  
 export const metadata: Metadata = {
   title: 'Criptobros | Inicio',
@@ -12,6 +13,7 @@ export default function Home() {
       </section>
       <section className='flex flex-col px-8 py-6'>
         <h2 className='text-2xl font-semibold text-[#042e49] mb-4'>Entradas recientes</h2>
+        <PostsList />
       </section>
     </main>
   )

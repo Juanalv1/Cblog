@@ -15,13 +15,10 @@ function PostPage({slug} : {slug: string}) {
   const { posts, session } = useContext(ThemeContext)
   const [post, setPost] = useState<PostType>({} as PostType)
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_DEV}/posts/title/${slug}`)
-      const resJSON = await res.json()
-      setPost(resJSON)
-      console.log(resJSON)
+    const pagePost = posts?.find((p) => p.post_title === slug)
+    if (pagePost) {
+      setPost(pagePost)
     }
-    fetchData()
   }, [])
   return (
     <>
@@ -40,7 +37,7 @@ function PostPage({slug} : {slug: string}) {
           <article className='flex flex-col py-4 px-6 justify-center border-t-black w-full mt-4 lg:px-12 xl:px-24'>
             <p className='text-2xl font-medium my-2 pb-1'>Posts relacionados</p>
             <div className='flex flex-col lg:flex-row gap-y-4 gap-x-6'>
-              {Array.isArray(posts) && posts?.slice(0, 4).map((post: PostType, index) =>(
+              {Array.isArray(posts) && posts?.slice(0, 4).filter((p) => p.post_title != post.post_title).map((post: PostType, index) =>(
                 <PostCard description={post.preview_description} banner_url={post.banner_url} title={post.post_title} key={index}/>
               ))}
             </div>
