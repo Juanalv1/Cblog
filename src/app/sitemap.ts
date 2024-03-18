@@ -30,7 +30,7 @@ export default async function sitemap() : Promise<Sitemap> {
     let pages = []
     const staticPages = [
       {
-        url: 'https://piratajuegos.com',
+        url: 'https://criptobros.com',
         lastModified: currentDate,
         changeFrequency: 'daily',
         priority: 1,
@@ -41,7 +41,7 @@ export default async function sitemap() : Promise<Sitemap> {
     if (posts) {
       const dynamicPages = posts.map((post: PostType) => (
         {
-        url: `${site_URL}/blog/${post.post_title}`,
+        url: `${site_URL}/blog/${post.post_title.replace(/ /g, "-")}`,
         lastModified: currentDate,
         changeFrequency: 'weekly',
         priority: 1,

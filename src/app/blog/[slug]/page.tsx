@@ -12,7 +12,7 @@ type PostType = {
     preview_description: string
 }
 const Page = ({ params }: { params: { slug: string } }) => {
-  const slug = params.slug.toLowerCase()
+  const slug = params.slug.toLowerCase().replace(/-/g, " ")
   const { posts, session } = useContext(ThemeContext)
   console.log(posts)
   const [post, setPost] = useState<PostType>({} as PostType)
