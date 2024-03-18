@@ -1,4 +1,4 @@
-"use state"
+"use client"
 import { FormEvent, useContext, useEffect, useState } from "react"
 import { ThemeContext } from "../context/ThemeContext"
 import Link from "next/link"
