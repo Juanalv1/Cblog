@@ -33,7 +33,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
             {session && (
               <p>Id del post <b>{post.post_id}</b></p>
             )}
-            <img src={post.banner_url} className=' rounded-md mb-12 max-w-[500px] mx-auto'/>
+            <img src={post.banner_url} className=' rounded-md mb-12 max-w-[500px] mx-auto flex w-full lg:w-[500px]'/>
             <h1 className='text-4xl font-bold mb-2
             '>{post.post_title}</h1>
             <div dangerouslySetInnerHTML={{ __html: post.content }} className='text-[#3E4C5C]'/>
