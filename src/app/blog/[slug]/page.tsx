@@ -20,14 +20,16 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
-  const slug = params.slug.toLowerCase().replace(/-/g, " ")
+  const slug = decodeURI(params.slug.replace(/-/g, " "))
+
   return {
     title: slug,
   }
 }
 
 const Page = ({ params }: { params: { slug: string } }) => {
-  const slug = params.slug.toLowerCase().replace(/-/g, " ")
+  const slug = decodeURI(params.slug.toLowerCase().replace(/-/g, " "))
+  console.log(slug)
   return (
     <main>
       <section className='px-2 md:px-6 py-2 md:py-4 justify-center items-center flex flex-col text-[#3E4C5C]'>

@@ -15,11 +15,17 @@ function PostPage({slug} : {slug: string}) {
   const { posts, session } = useContext(ThemeContext)
   const [post, setPost] = useState<PostType>({} as PostType)
   useEffect(() => {
-    const pagePost = posts?.find((p) => p.post_title === slug)
-    if (pagePost) {
-      setPost(pagePost)
+    if (posts) {
+      console.log('en el if')
+      console.log(posts, slug)
+      const pagePost = posts.find((p) => p.post_title.toLowerCase() == slug)
+      if (pagePost) {
+        setPost(pagePost)
+      } 
     }
-  }, [])
+  } 
+  ,[posts])
+
   return (
     <>
               {post && (
@@ -36,8 +42,8 @@ function PostPage({slug} : {slug: string}) {
         {posts && (
           <article className='flex flex-col py-4 px-6 justify-center border-t-black w-full mt-4 lg:px-12 xl:px-24'>
             <p className='text-2xl font-medium my-2 pb-1'>Posts relacionados</p>
-            <div className='flex flex-col lg:flex-row gap-y-4 gap-x-6'>
-              {Array.isArray(posts) && posts?.slice(0, 4).filter((p) => p.post_title != post.post_title).map((post: PostType, index) =>(
+            <div className='flex flex-col lg:flex-row gap-y-4 gap-x-6 place-items-center'>
+              {Array.isArray(posts) && posts?.slice(0, 5).filter((p) => p.post_title != post.post_title).map((post: PostType, index) =>(
                 <PostCard description={post.preview_description} banner_url={post.banner_url} title={post.post_title} key={index}/>
               ))}
             </div>
