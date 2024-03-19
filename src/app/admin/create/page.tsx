@@ -51,7 +51,7 @@ function Create() {
         if (res.status == 201) {
           setSuccess('Post creado exitosamente, redirigiendo en 5 segundos...')
           setTimeout(() => {
-            router.push(`/blog/${title}`)
+            router.push(`/blog/${title.replace(/ /g, '-').replace(/,/g, '%2c')}`)
           }, 5000);
         }
         else {
