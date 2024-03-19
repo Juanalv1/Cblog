@@ -41,7 +41,7 @@ export default async function sitemap() : Promise<Sitemap> {
     if (posts) {
       const dynamicPages = posts.map((post: PostType) => (
         {
-        url: `${site_URL}/blog/${post.post_title.replace(/ /g, "-")}`,
+        url: `${site_URL}/blog/${post.post_title.replace(/ /g, "-").replace(/,/g, "%2c")}`,
         lastModified: currentDate,
         changeFrequency: 'weekly',
         priority: 1,

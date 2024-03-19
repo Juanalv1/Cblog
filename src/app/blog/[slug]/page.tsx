@@ -26,6 +26,7 @@ export async function generateMetadata(
 
   return {
     title: slug,
+    description: slug,
   }
 }
 
