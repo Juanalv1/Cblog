@@ -32,8 +32,8 @@ export default async function sitemap() : Promise<Sitemap> {
       {
         url: 'https://criptobros.com',
         lastModified: currentDate,
-        changeFrequency: 'daily',
-        priority: 1,
+        changeFrequency: 'weekly',
+        priority: 2,
       },
     ];
 
