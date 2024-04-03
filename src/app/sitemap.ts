@@ -21,12 +21,13 @@ type Sitemap = Array<{
   priority?: number
 }>
 export default async function sitemap() : Promise<Sitemap> {
-  const fetchURL = 'https://criptobros.com/api/v1/posts';
+  const fetchURL = 'https://criptobros.com/api/v1/posts?onlytitles=true';
   const site_URL = 'https://criptobros.com';
   const currentDate = new Date();
   try {
     const req = await fetch(fetchURL);
     const posts = await req.json();
+    console.log(posts)
     let pages = []
     const staticPages = [
       {
@@ -50,6 +51,7 @@ export default async function sitemap() : Promise<Sitemap> {
     } else {
       pages = [...staticPages];
     }
+      console.log(pages)
       return pages;
   } catch (error) {
     console.error('Error al obtener datos: ', error);
