@@ -29,7 +29,7 @@ export async function generateMetadata(
     title: slug,
     description: slug,
     alternates: {
-      canonical: `https://criptobros.com/blog/${slug}`,
+      canonical: `https://criptobros.com/blog/${decodedSlug}`,
   }
   }
 }
@@ -37,7 +37,6 @@ export async function generateMetadata(
 const Page = ({ params }: { params: { slug: string } }) => {
   const decodedSlug = decodeURIComponent(params.slug)
   const slug = decodedSlug.replace(/-/g, " ").replace(/%2c/g, ',')
-  console.log(slug)
   return (
     <main>
       <section className='px-2 md:px-6 py-2 md:py-4 justify-center items-center flex flex-col text-[#3E4C5C]'>
