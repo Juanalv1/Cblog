@@ -4,6 +4,9 @@ import PostsList from './components/PostsList'
 export const metadata: Metadata = {
   title: 'Criptobros | Inicio',
   description: 'Enterate de todo sobre el mundo cripto, noticias, inversiones y mucho mas¡',
+  alternates: {
+    canonical: 'https://criptobros.com',
+  }
 }
 export default function Home() {
   return (

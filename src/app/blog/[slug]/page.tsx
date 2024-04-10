@@ -1,5 +1,6 @@
 import PostPage from '@/app/components/PostPage'
 import { Metadata, ResolvingMetadata } from 'next'
+import { SlUserFollowing } from 'react-icons/sl'
 
 type PostType = {
     post_id: number,
@@ -27,6 +28,9 @@ export async function generateMetadata(
   return {
     title: slug,
     description: slug,
+    alternates: {
+      canonical: `https://criptobros.com/blog/${slug}`,
+  }
   }
 }
 
